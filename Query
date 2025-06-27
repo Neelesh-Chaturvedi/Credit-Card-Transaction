@@ -1,7 +1,7 @@
 
 -- 1- Write a query to print top 5 cities with highest spends and their percentage contribution of total credit card spends. 
 
-with cte1 as (
+```with cte1 as (
 SELECT 
     city, SUM(amount) AS highest_spend
  FROM
@@ -25,7 +25,7 @@ FROM
 
 -- 2- Write a query to print highest spend month and amount spent in that month for each card type.
 
-with cte1 as (
+```with cte1 as (
 SELECT 
 card_type,
     year(transaction_date) as Year,
@@ -49,7 +49,7 @@ WHERE
 
 -- 3- Write a query to print the transaction details(all columns from the table) for each card type when it reaches a cumulative of 1000000 total spends(We should have 4 rows in the o/p one for each card type).
 
-WITH cte1 AS (
+```WITH cte1 AS (
     SELECT *,
            SUM(amount) OVER(PARTITION BY card_type ORDER BY transaction_date, transaction_id) AS cum_sum
     FROM credit_card_transcations
@@ -66,7 +66,7 @@ WHERE rn = 1;
 
 -- 4- Write a query to find city which had lowest percentage spend for gold card type.
 
-with cte1 as (
+```with cte1 as (
 SELECT 
     city, SUM(amount) AS total_amount
 FROM
@@ -97,7 +97,7 @@ ORDER BY gold_pct ASC LIMIT 1;
 
 -- 5- Write a query to print 3 columns:  city, highest_expense_type , lowest_expense_type (example format : Delhi , bills, Fuel).
 
-with cte1 as (
+```with cte1 as (
 SELECT 
     city, exp_type, SUM(amount) AS total_spend
 FROM
@@ -127,7 +127,7 @@ GROUP BY city;
 
 -- 6- Write a query to find percentage contribution of spends by females for each expense type.
 
-with cte1 as 
+```with cte1 as 
 (SELECT 
     exp_type, SUM(amount) AS total_amount
 FROM
@@ -156,7 +156,7 @@ FROM
 
 -- 7- Which card and expense type combination saw highest month over month growth in Jan-2014.
 
-WITH cte AS (
+```WITH cte AS (
   SELECT 
     card_type,
     exp_type,
@@ -184,7 +184,7 @@ WHERE prev_mont_spend;
 
 -- 8- During weekends which city has highest total spend to total no of transactions ratio.
 
-SELECT 
+```SELECT 
     city, SUM(amount) / COUNT(*) AS ratio
 FROM
     credit_card_transcations
@@ -196,7 +196,7 @@ ORDER BY ratio DESC LIMIT 1;
 
 -- 9- Which city took least number of days to reach its 500th transaction after the first transaction in that city.
 
-WITH cte AS (
+```WITH cte AS (
     SELECT *,
            ROW_NUMBER() OVER(PARTITION BY city ORDER BY transaction_date, transaction_id) AS rn
     FROM credit_card_transcations

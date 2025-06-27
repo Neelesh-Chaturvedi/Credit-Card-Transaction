@@ -10,7 +10,7 @@ This repository contains an **ad-hoc analysis** project based on credit card spe
 
 ## 🗂️ Files in this Repo
 
-- `credit_card_transcations` – Dataset downloaded from Kaggle  
+- `credit_card_transcations.csv` – Dataset downloaded from Kaggle  
 - `query` – Contains all 9 SQL queries written for the analysis  
 - `pdf` – Key takeaways and business insights from the queries  
 - `README.md` – You’re here :)

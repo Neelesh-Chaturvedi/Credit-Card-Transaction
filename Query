@@ -214,6 +214,15 @@ HAVING COUNT(*) = 2
 ORDER BY days_to_500 ASC;
 
 
+### 📌 Sample Query: Top 5 Cities by Credit Card Spend
+
+```sql
+SELECT city, SUM(amount) AS total_spend
+FROM credit_card_transcations
+GROUP BY city
+ORDER BY total_spend DESC
+LIMIT 5;
+
 
 
 
